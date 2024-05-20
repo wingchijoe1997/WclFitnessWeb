@@ -5,7 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'Powerlifting', href: '/powerlifting', current: false },
-  { name: 'Projects', href: '#', current: false },
+  { name: 'CrossFit', href: '/crossfit', current: false },
   { name: 'Calendar', href: '#', current: false },
 ]
 

@@ -13,6 +13,8 @@ const Footer = () => {
         <a href="https://facebook.com" aria-label="Facebook" className="hover:text-blue-500"><i className="fab fa-facebook fa-2x"></i></a>
         <a href="https://twitter.com" aria-label="Twitter" className="hover:text-blue-300"><i className="fab fa-twitter fa-2x"></i></a>
         <a href="https://instagram.com" aria-label="Instagram" className="hover:text-pink-500"><i className="fab fa-instagram fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/wingchilam/" aria-label="LinkedIn" className="hover:text-blue-700"><i className="fab fa-linkedin fa-2x"></i> </a>
+        <a href="https://github.com/wingchijoe1997" aria-label="GitHub" className="hover:text-gray-700"><i className="fab fa-github fa-2x"></i></a>
       </div>
       <p>&copy; Wing Chi Lam All rights reserved.</p>
     </footer>
