@@ -6,7 +6,7 @@ const navigation = [
   { name: 'Home', href: '/', current: false },
   { name: 'Powerlifting', href: '/powerlifting', current: false },
   { name: 'CrossFit', href: '/crossfit', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Gymnastics', href: '/gymnastics', current: false },
 ]
 
 function classNames(...classes) {
@@ -15,10 +15,7 @@ function classNames(...classes) {
 
 
 export default function Header() {
-  // Retrieve the current url path
   const path = window.location.pathname.substring(1);
-  // strip the initial /
-  console.log(path);
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -48,10 +45,7 @@ export default function Header() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => 
-                   { console.log("item:", item.name);
-                    console.log(path);
-                    console.log(item.name == path);
-                    return (
+                  (
                       <a
                         key={item.name}
                         href={item.href}
@@ -63,7 +57,7 @@ export default function Header() {
                       >
                         {item.name}
                       </a>
-                    )})}
+                    ))}
                   </div>
                 </div>
               </div>
