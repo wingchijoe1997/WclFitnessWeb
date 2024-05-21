@@ -3,17 +3,19 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Home', href: '/', current: true },
+  { name: 'Home', href: '/', current: false },
   { name: 'Powerlifting', href: '/powerlifting', current: false },
   { name: 'CrossFit', href: '/crossfit', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Gymnastics', href: '/gymnastics', current: false },
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+
 export default function Header() {
+  const path = window.location.pathname.substring(1);
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -42,12 +44,13 @@ export default function Header() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    {navigation.map((item) => 
+                  (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          item.name.toLowerCase() == path ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}

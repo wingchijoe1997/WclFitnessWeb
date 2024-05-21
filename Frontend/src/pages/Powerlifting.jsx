@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PurchaseForm from '../components/PurchaseForm';
 
 const Powerlifting = () => {
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState('');
+
+
+  // Function to handle purchase button click
+  const handlePurchaseClick = (programName) => {
+    setSelectedProgram(programName); // Set the selected program name
+    setShowModal(true); // Show the purchase form modal
+  };
+
   return (
     <section className="py-16 px-6 bg-gradient-to-r from-gray-100 to-gray-200">
       <h2 className="text-4xl font-bold text-center mb-8 text-gray-800">Introduction to Powerlifting</h2>
@@ -26,7 +38,7 @@ const Powerlifting = () => {
               <li>Week 3: 1 set of 5 reps, 1 set of 3 reps, 1 set of 1 rep</li>
               <li>Week 4: Deload week</li>
             </ul>
-            <button className="absolute bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">Purchase</button>
+            <button className="absolute bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors" onClick={() => handlePurchaseClick("5/3/1 Program")}>Purchase</button>
           </div>
         </div>
 
@@ -42,7 +54,7 @@ const Powerlifting = () => {
               <li>Alternates between two main workouts: Workout A and Workout B</li>
               <li>Includes accessory lifts for balanced development</li>
             </ul>
-            <button className="absolute bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">Purchase</button>
+            <button className="absolute bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors" onClick={() => handlePurchaseClick("5x5 Program")}>Purchase</button>
           </div>
         </div>
 
@@ -57,7 +69,7 @@ const Powerlifting = () => {
               <li>Wednesday: Light Day (2-3 sets of 5 reps at 80% of Monday's weight)</li>
               <li>Friday: Intensity Day (1 set of 5 reps at new 5RM)</li>
             </ul>
-            <button className="absolute bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">Purchase</button>
+            <button className="absolute bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors" onClick={() => handlePurchaseClick("Texas Method")}>Purchase</button>
           </div>
         </div>
 
@@ -73,12 +85,17 @@ const Powerlifting = () => {
               <li>Switching Phase: 2 weeks of low volume, high intensity</li>
               <li>Intense Mesocycle: 4 weeks of peaking intensity</li>
             </ul>
-            <button className="absolute bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">Purchase</button>
+            <button className="absolute bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"  onClick={() => handlePurchaseClick("Smolov Squat Routine")}>Purchase</button>
           </div>
         </div>
       </div>
+      {showModal && <PurchaseForm onClose={() => setShowModal(false)} program={selectedProgram} />}
     </section>
   );
 };
 
 export default Powerlifting;
+
+
+
+

@@ -1,6 +1,6 @@
 // src/pages/Home.js
 
-import React from 'react';
+import React,{ useRef }  from 'react';
 import happybaby from '../assets/homePageImage/happybaby.jpg';
 import energy from '../assets/homePageImage/energy.jpg';
 import sleep from  '../assets/homePageImage/sleep.jpg';
@@ -8,20 +8,29 @@ import running from '../assets/homePageImage/running.png';
 import strength from '../assets/homePageImage/strength.jpg';
 import Flexibility from '../assets/homePageImage/Flexibility.jpg';
 import balance from '../assets/homePageImage/balance.jpg';
+
 const Home = () => {
+
+  const whyFitnessMattersRef = useRef(null);
+
+  const scrollToWhyFitnessMatters = () => {
+    whyFitnessMattersRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
+ 
     <div className="bg-gray-100">
       {/* Hero Section */}
       <section className="bg-cover bg-center h-screen text-black flex flex-col justify-center items-center" style={{ backgroundImage: "url('/path/to/your/background-image.jpg')" }}>
         <h1 className="text-5xl font-bold mb-4">Get Fit, Stay Healthy</h1>
         <p className="text-lg mb-8">Join us in the journey to a healthier, happier you.</p>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={scrollToWhyFitnessMatters}>
           Get Started
         </button>
       </section>
 
       {/* Introduction to Fitness */}
-      <section className="py-12 px-4 text-center">
+      <section ref={whyFitnessMattersRef} id="whyFitnessMatters" className="py-12 px-4 text-center">
         <h2 className="text-4xl font-bold mb-6">Why Fitness Matters</h2>
         <p className="text-lg mb-8">Fitness is not just about hitting the gym; it’s about an active lifestyle. Learn the benefits of staying fit and how you can get started.</p>
         <div className="flex flex-wrap justify-center">
